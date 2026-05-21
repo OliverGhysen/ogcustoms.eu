@@ -265,11 +265,10 @@ a {
 }
 
 .hero__image {
-  flex: 1;
+  flex: 1.2;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 832px;
 }
 
 .hero__image img {

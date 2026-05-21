@@ -685,7 +685,7 @@ a {
   margin-bottom: 48px;
   border-radius: var(--radius);
   overflow: hidden;
-  max-width: 50%;
+  max-width: 40%;
   margin-left: auto;
   margin-right: auto;
 }

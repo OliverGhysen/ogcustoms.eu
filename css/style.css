@@ -679,6 +679,21 @@ a {
   border-radius: var(--radius);
 }
 
+/* ---- FEATURES DRAWINGS ---- */
+
+.features__drawings {
+  margin-top: 48px;
+}
+
+/* ---- BUTTON LOGO ---- */
+
+.btn__logo {
+  height: 18px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* ---- ABOUT HERO ---- */
 
 .about-hero {

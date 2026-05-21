@@ -269,7 +269,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 440px;
+  max-width: 528px;
 }
 
 .hero__image img {
@@ -313,11 +313,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 200px;
+  min-height: 240px;
 }
 
 .model-card__image img {
-  max-height: 200px;
+  max-height: 240px;
   width: auto;
   object-fit: contain;
 }
@@ -670,8 +670,8 @@ a {
 }
 
 .about__image {
-  flex: 0 0 340px;
-  max-width: 340px;
+  flex: 0 0 408px;
+  max-width: 408px;
 }
 
 .about__image img {
@@ -723,6 +723,52 @@ a {
 
 .craftsmanship {
   background: var(--color-surface);
+}
+
+/* ---- SPONSORS ---- */
+
+.about__sponsors {
+  margin-top: 32px;
+}
+
+.about__sponsors-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.about__sponsor-logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.sponsor-logo {
+  height: 36px;
+  width: auto;
+  opacity: 0.7;
+  transition: opacity var(--transition);
+}
+
+.sponsor-logo:hover {
+  opacity: 1;
+}
+
+/* ---- INSTAGRAM EMBED ---- */
+
+.instagram-embed {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ---- MIXED GALLERY ---- */
+
+.gallery__grid--mixed {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* ---- ANIMATIONS ---- */
@@ -861,6 +907,10 @@ a {
   .about__inner--reverse {
     flex-direction: column;
     gap: 32px;
+  }
+
+  .gallery__grid--mixed {
+    grid-template-columns: 1fr;
   }
 }
 

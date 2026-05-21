@@ -679,6 +679,20 @@ a {
   border-radius: var(--radius);
 }
 
+/* ---- FEATURES VIDEO ---- */
+
+.features__video {
+  margin-bottom: 48px;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.features__video video {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
 /* ---- FEATURES DRAWINGS ---- */
 
 .features__drawings {

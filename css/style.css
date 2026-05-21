@@ -499,12 +499,11 @@ a {
   font-style: italic;
 }
 
-/* ---- BUY CTA ---- */
+/* ---- BUY ---- */
 
 .buy {
   background: var(--color-text);
   color: var(--color-bg);
-  text-align: center;
 }
 
 .buy .section__inner {
@@ -515,44 +514,59 @@ a {
   font-size: 36px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin-bottom: 8px;
+  margin-bottom: 40px;
+  text-align: center;
 }
 
-.buy__subtitle {
-  font-size: 16px;
-  opacity: 0.7;
-  margin-bottom: 36px;
+.buy__options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.buy__buttons {
+.buy__option {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: center;
   display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.buy__store-logo {
+  height: 32px;
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  margin-bottom: 4px;
+}
+
+.buy__option h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.buy__option p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.7;
+  margin-bottom: 8px;
 }
 
 .buy .btn--primary {
   background: #fff;
   color: var(--color-text);
+  margin-top: auto;
 }
 
 .buy .btn--primary:hover {
   background: #e0e0e0;
-}
-
-.buy .btn--secondary {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
-}
-
-.buy .btn--secondary:hover {
-  border-color: #fff;
-}
-
-.buy__note {
-  margin-top: 24px;
-  font-size: 13px;
-  opacity: 0.5;
 }
 
 /* ---- FOOTER ---- */
@@ -663,6 +677,37 @@ a {
 .about__image img {
   width: 100%;
   border-radius: var(--radius);
+}
+
+/* ---- ABOUT HERO ---- */
+
+.about-hero {
+  padding-top: var(--nav-height);
+  background: var(--color-bg);
+}
+
+.about-hero .section__inner {
+  padding-bottom: 0;
+}
+
+.about__inner--reverse {
+  flex-direction: row-reverse;
+}
+
+.nav__links--active {
+  color: var(--color-text) !important;
+}
+
+/* ---- ACTION SHOTS ---- */
+
+.action {
+  background: var(--color-bg);
+}
+
+/* ---- CRAFTSMANSHIP ---- */
+
+.craftsmanship {
+  background: var(--color-surface);
 }
 
 /* ---- ANIMATIONS ---- */
@@ -792,6 +837,15 @@ a {
 
   .buy__title {
     font-size: 28px;
+  }
+
+  .buy__options {
+    grid-template-columns: 1fr;
+  }
+
+  .about__inner--reverse {
+    flex-direction: column;
+    gap: 32px;
   }
 }
 

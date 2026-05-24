@@ -56,13 +56,17 @@
     }
   });
 
-  // Gallery collapse toggle
-  const galleryGrid = document.getElementById("product-gallery");
-  const galleryToggle = document.getElementById("gallery-toggle");
-  if (galleryGrid && galleryToggle) {
-    galleryToggle.addEventListener("click", () => {
-      const collapsed = galleryGrid.classList.toggle("gallery__grid--collapsed");
-      galleryToggle.textContent = collapsed ? "Show all" : "Show less";
+  // Gallery carousel arrows
+  const carouselTrack = document.querySelector(".carousel__track");
+  const prevBtn = document.getElementById("carousel-prev");
+  const nextBtn = document.getElementById("carousel-next");
+  if (carouselTrack && prevBtn && nextBtn) {
+    const scrollAmount = () => carouselTrack.clientWidth * 0.8;
+    prevBtn.addEventListener("click", () => {
+      carouselTrack.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+    });
+    nextBtn.addEventListener("click", () => {
+      carouselTrack.scrollBy({ left: scrollAmount(), behavior: "smooth" });
     });
   }
 

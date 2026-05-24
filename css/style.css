@@ -781,33 +781,83 @@ a {
   justify-content: center;
 }
 
-/* ---- HANDLE GALLERY ---- */
+/* ---- HANDLE GALLERY / CAROUSEL ---- */
 
 .handle-gallery {
   background: var(--color-bg);
 }
 
-.gallery__grid--product {
-  grid-template-columns: repeat(4, 1fr);
+.carousel {
+  position: relative;
+}
+
+.carousel__track {
+  display: flex;
   gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 0;
 }
 
-.gallery__grid--product .gallery__item {
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel .gallery__item {
+  flex: 0 0 calc(25% - 9px);
+  scroll-snap-align: start;
+  border-radius: var(--radius);
+  overflow: hidden;
   background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: transform var(--transition);
 }
 
-.gallery__grid--product .gallery__item img {
+.carousel .gallery__item:hover {
+  transform: scale(1.02);
+}
+
+.carousel .gallery__item img {
+  width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
 }
 
-.gallery__grid--collapsed .gallery__item:nth-child(n+5) {
-  display: none;
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.gallery__toggle {
-  display: block;
-  margin: 24px auto 0;
+.carousel__btn:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.carousel__btn--prev {
+  left: -22px;
+}
+
+.carousel__btn--next {
+  right: -22px;
 }
 
 /* ---- MIXED GALLERY ---- */
@@ -958,18 +1008,28 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .gallery__grid--product {
-    grid-template-columns: repeat(2, 1fr);
+  .carousel .gallery__item {
+    flex: 0 0 calc(50% - 6px);
+  }
+
+  .carousel__btn {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .carousel__btn--prev {
+    left: -8px;
+  }
+
+  .carousel__btn--next {
+    right: -8px;
   }
 }
 
 @media (max-width: 480px) {
   .gallery__grid {
     grid-template-columns: 1fr;
-  }
-
-  .gallery__grid--product {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .btn--lg {

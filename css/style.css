@@ -801,7 +801,7 @@ a {
   object-fit: cover;
 }
 
-.gallery__grid--collapsed .gallery__item:nth-child(n+9) {
+.gallery__grid--collapsed .gallery__item:nth-child(n+5) {
   display: none;
 }
 

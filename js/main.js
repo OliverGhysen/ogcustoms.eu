@@ -56,6 +56,16 @@
     }
   });
 
+  // Gallery collapse toggle
+  const galleryGrid = document.getElementById("product-gallery");
+  const galleryToggle = document.getElementById("gallery-toggle");
+  if (galleryGrid && galleryToggle) {
+    galleryToggle.addEventListener("click", () => {
+      const collapsed = galleryGrid.classList.toggle("gallery__grid--collapsed");
+      galleryToggle.textContent = collapsed ? "Show all" : "Show less";
+    });
+  }
+
   // Fade-in on scroll
   const observer = new IntersectionObserver(
     (entries) => {

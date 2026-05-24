@@ -801,6 +801,15 @@ a {
   object-fit: cover;
 }
 
+.gallery__grid--collapsed .gallery__item:nth-child(n+9) {
+  display: none;
+}
+
+.gallery__toggle {
+  display: block;
+  margin: 24px auto 0;
+}
+
 /* ---- MIXED GALLERY ---- */
 
 .gallery__grid--mixed {

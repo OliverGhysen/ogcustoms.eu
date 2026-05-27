@@ -866,6 +866,12 @@ a {
   grid-template-columns: repeat(3, 1fr);
 }
 
+/* ---- SPECS PAGE ---- */
+
+.specs-page .sizing:first-of-type .section__inner {
+  padding-top: calc(var(--nav-height) + 48px);
+}
+
 /* ---- SPECS ---- */
 
 .specs {
@@ -1002,6 +1008,13 @@ a {
   font-size: 14px;
   color: var(--color-text-muted);
   line-height: 1.7;
+}
+
+.durability__text {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 720px;
 }
 
 /* ---- ANIMATIONS ---- */

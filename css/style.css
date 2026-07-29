@@ -1,5 +1,5 @@
 /* ============================================
-   OG Customs — Landing Page Styles
+   OGC — Landing Page Styles
    Clean / Minimal / Techy
    ============================================ */
 
@@ -719,6 +719,10 @@ a {
 
 .about-hero .section__inner {
   padding-bottom: 0;
+}
+
+.about .about__inner {
+  padding-top: 32px;
 }
 
 .about__inner--reverse {

@@ -69,6 +69,7 @@ class HandleViewer {
   models = [];
   ndc = new THREE.Vector3();
   reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  narrow = false;
   onScreen = true;
   dist = 3;
   scrollProgress = 0;
@@ -219,7 +220,12 @@ class HandleViewer {
 
   scrollRange() {
     const stickyTop = this.stickyTop();
-    const total = this.pin.offsetHeight - window.innerHeight + stickyTop;
+    // Use the sticky viewer's own (vh-based) height rather than
+    // window.innerHeight. On mobile the address bar show/hide changes
+    // window.innerHeight and reflows the page as you enter/leave the section,
+    // which would otherwise jitter scrollProgress and flicker the models.
+    const viewportH = this.viewer.clientHeight + stickyTop;
+    const total = this.pin.offsetHeight - viewportH + stickyTop;
     return { total, stickyTop };
   }
 
@@ -229,7 +235,11 @@ class HandleViewer {
       this.scrollProgress = 0;
       return;
     }
-    const actual = clamp((stickyTop - this.pin.getBoundingClientRect().top) / (total * 0.85), 0, 1);
+    let actual = clamp((stickyTop - this.pin.getBoundingClientRect().top) / (total * 0.85), 0, 1);
+    // Deadzone at both ends so residual jitter holds the models perfectly still
+    // when the section is only partially on screen (top/bottom half).
+    if (actual < 0.01) actual = 0;
+    else if (actual > 0.99) actual = 1;
     this.scrollProgress = actual;
   }
 
@@ -261,17 +271,28 @@ class HandleViewer {
       const group = this.models[i];
       if (!el || !group) continue;
       const r = group.userData.radius ?? 1;
-      this.ndc.set(group.position.x + r * 0.72, r * 0.58, 0);
-      this.ndc.project(this.camera);
-      const x = (this.ndc.x * 0.5 + 0.5) * w;
-      const y = (-this.ndc.y * 0.5 + 0.5) * h;
-      el.style.transform = `translate(${x}px, ${y}px) translate(10px, -90%)`;
+      if (this.narrow) {
+        // Mobile: center the caption directly above the model.
+        this.ndc.set(group.position.x, r * 0.85, 0);
+        this.ndc.project(this.camera);
+        const x = (this.ndc.x * 0.5 + 0.5) * w;
+        const y = (-this.ndc.y * 0.5 + 0.5) * h;
+        el.style.transform = `translate(${x}px, ${y}px) translate(-50%, calc(-100% - 6px))`;
+      } else {
+        // Desktop: track each model horizontally but keep a shared top line.
+        this.ndc.set(group.position.x + r * 0.72, 0, 0);
+        this.ndc.project(this.camera);
+        const x = (this.ndc.x * 0.5 + 0.5) * w;
+        const y = Math.round(h * 0.1);
+        el.style.transform = `translate(${x}px, ${y}px) translate(10px, 0)`;
+      }
       const d = Math.abs(focusIndex - i);
       el.style.opacity = String(clamp(1 - d * 0.55, 0, 1));
     }
   }
 
   resize() {
+    this.narrow = window.matchMedia("(max-width: 768px)").matches;
     const w = this.container.clientWidth || 1;
     const h = this.container.clientHeight || 1;
     this.renderer.setSize(w, h, false);

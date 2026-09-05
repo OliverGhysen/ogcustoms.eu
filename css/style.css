@@ -1210,8 +1210,8 @@ a {
   }
 
   .viewer__caption {
-    width: min(200px, 70vw);
-    padding: 10px 12px;
+    width: min(300px, 92vw);
+    padding: 8px 14px;
   }
 
   .viewer__caption-name {

@@ -1157,8 +1157,10 @@ a {
     height: auto;
   }
 
+  /* Unpinned but still a positioning context so the absolute video fills the
+     stage (not the whole page). */
   .features__stage {
-    position: static;
+    position: relative;
     height: auto;
   }
 

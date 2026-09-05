@@ -22,8 +22,10 @@
   <meta name="twitter:description" content="The premium big air handle trusted by the pros. Custom 3D-printed kiteboard handles.">
   <meta name="twitter:image" content="https://ogcustoms.eu/images/tall_photo.webp">
 
-  <link rel="icon" href="images/logo_transparent.png" type="image/jpeg">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -34,7 +36,7 @@
   <nav class="nav" id="nav">
     <div class="nav__inner">
       <a href="/" class="nav__logo">
-        <img src="images/logo_transparent.png" alt="OGC" class="nav__logo-img">
+        <img src="/images/logo_transparent.png" alt="OGC" class="nav__logo-img">
       </a>
       <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -63,67 +65,20 @@
       </div>
     </div>
     <div class="hero__image">
-      <img src="images/3d_models/show_square%20clear.png" alt="OGC Big Air Handles">
-    </div>
-  </section>
-
-  <!-- MODELS -->
-  <section class="models" id="models">
-    <div class="section__inner">
-      <h2 class="section__title">Models</h2>
-      <div class="models__grid">
-
-        <div class="model-card">
-          <div class="model-card__image">
-            <img src="images/mini_photo.webp" alt="OGC Mini Handle">
-          </div>
-          <h3 class="model-card__name">Mini</h3>
-          <p class="model-card__desc">A smaller version for riders who want to personalise their board. Clean and compact.</p>
-        </div>
-
-        <div class="model-card model-card--featured">
-          <div class="model-card__image">
-            <img src="images/tall_photo.webp" alt="OGC Tall Handle">
-          </div>
-          <h3 class="model-card__name">Tall</h3>
-          <span class="model-card__badge">Signature</span>
-          <p class="model-card__desc">The go-to big air handle. High enough to catch easily, compact enough to avoid feeling like a long lever. Perfectly balanced.</p>
-        </div>
-
-        <div class="model-card">
-          <div class="model-card__image">
-            <img src="images/trap_photo.webp" alt="OGC Trap Phone Handle">
-          </div>
-          <h3 class="model-card__name">Trap Phone</h3>
-          <p class="model-card__desc">Designed for Andrea Principi. Even higher with a wider base for ultimate stability and a solid feel.</p>
-        </div>
-
-      </div>
+      <img src="/images/3d_models/show_square%20clear.png" alt="OGC Big Air Handles">
     </div>
   </section>
 
   <!-- FEATURES -->
-  <section class="features" id="features">
-    <div class="section__inner">
-      <div class="features__video">
-        <video autoplay muted loop playsinline>
-          <source src="https://www.surgekitestore.com/cdn/shop/videos/c/vp/786f7b81bce64970866d58cb7cb58473/786f7b81bce64970866d58cb7cb58473.HD-1080p-7.2Mbps-64660646.mp4?v=0" type="video/mp4">
-        </video>
-      </div>
-      <h2 class="section__title">Engineered, not just designed</h2>
-      <div class="features__drawings">
-        <div class="gallery__grid">
-          <div class="gallery__item">
-            <img src="images/3d_models/small_square%20clear.png" alt="Mini handle engineering drawing" loading="lazy">
-          </div>
-          <div class="gallery__item">
-            <img src="images/3d_models/tall_square%20clear.png" alt="Tall handle engineering drawing" loading="lazy">
-          </div>
-          <div class="gallery__item">
-            <img src="images/3d_models/trap_square%20clear.png" alt="Trap Phone handle engineering drawing" loading="lazy">
-          </div>
+  <section class="features" id="features" aria-label="Engineering">
+    <div class="features__pin">
+      <div class="features__stage">
+        <div class="features__video" aria-hidden="true">
+          <video autoplay muted loop playsinline>
+            <source src="/videos/ogc-web.mp4" type="video/mp4">
+          </video>
         </div>
-      </div>
+        <div class="section__inner">
       <div class="features__grid">
 
         <div class="feature">
@@ -175,25 +130,47 @@
         </div>
 
       </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELS -->
+  <section class="models" id="models" aria-label="Models">
+    <div class="viewer__pin">
+      <div class="features__viewer" id="handle-viewer">
+        <div class="viewer__stage" id="handle-stage" role="img" aria-label="Interactive 3D handle lineup: Mini, Tall, Trap Phone">
+          <article class="viewer__caption" data-model="mini">
+            <h3 class="viewer__caption-name">Mini</h3>
+            <p class="viewer__caption-desc">A small version for riders who want to personalise their board. Clean and compact.</p>
+          </article>
+          <article class="viewer__caption" data-model="tall">
+            <h3 class="viewer__caption-name">Tall</h3>
+            <span class="viewer__caption-badge">Signature</span>
+            <p class="viewer__caption-desc">Our go-to big air handle. High enough to catch easily, compact enough to avoid feeling like a long lever. Perfectly balanced.</p>
+          </article>
+          <article class="viewer__caption" data-model="trap_phone">
+            <h3 class="viewer__caption-name">Trap Phone</h3>
+            <p class="viewer__caption-desc">Designed for Andrea Principi. Even higher with a wider base for ultimate stability and a solid feel.</p>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- CRAFTSMANSHIP -->
   <section class="craftsmanship" id="craftsmanship">
-    <div class="section__inner about__inner about__inner--reverse">
-      <div class="about__text">
+    <div class="section__inner">
+      <div class="craftsmanship__text">
         <h2 class="section__title">Craftsmanship</h2>
         <p>The same engineering mindset that drives my professional work goes into every handle. From the flex geometry and material selection to the print process and quality control, nothing is left to chance.</p>
         <p>All edges are smoothed by design, only the best materials are used, and tape is sealed with glue. These little details make all the difference.</p>
         <p>I'm constantly refining the designs to push quality further. If you have feedback or ideas, please reach out.</p>
       </div>
-      <div class="about__image">
-        <img src="images/craftmahsip.webp" alt="Handle craftsmanship and attention to detail">
-      </div>
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- GALLERY + REVIEWS -->
   <section class="handle-gallery" id="gallery">
     <div class="section__inner">
       <h2 class="section__title">Gallery</h2>
@@ -201,6 +178,35 @@
         <button class="carousel__btn carousel__btn--prev" id="carousel-prev" aria-label="Previous">&#8249;</button>
         <div class="carousel__track" id="carousel-track"></div>
         <button class="carousel__btn carousel__btn--next" id="carousel-next" aria-label="Next">&#8250;</button>
+      </div>
+      <div class="reviews" id="reviews" hidden>
+        <div class="reviews__head">
+          <h2 class="section__title">Reviews</h2>
+          <div class="reviews__aggregate" id="reviews-aggregate"></div>
+        </div>
+        <div class="reviews__controls" id="reviews-controls">
+          <label class="reviews__control">
+            <span>Filter</span>
+            <select id="reviews-filter">
+              <option value="all">All ratings</option>
+              <option value="5">5 stars</option>
+              <option value="4">4 stars</option>
+              <option value="3">3 stars</option>
+              <option value="2">2 stars</option>
+              <option value="1">1 star</option>
+            </select>
+          </label>
+          <label class="reviews__control">
+            <span>Sort</span>
+            <select id="reviews-sort">
+              <option value="newest">Newest</option>
+              <option value="highest">Highest rated</option>
+              <option value="lowest">Lowest rated</option>
+            </select>
+          </label>
+        </div>
+        <div class="reviews__list" id="reviews-list"></div>
+        <p class="reviews__note">Reviews are written by verified buyers, invited by email after their handle is delivered.</p>
       </div>
     </div>
   </section>
@@ -212,7 +218,7 @@
       <div class="buy__options">
 
         <div class="buy__option">
-          <img src="images/surge_logo.avif" alt="Surge Kite Store" class="buy__store-logo">
+          <img src="/images/surge_logo.avif" alt="Surge Kite Store" class="buy__store-logo">
           <p>Custom made to order. Choose your color, add your personal information, and get a handle that is uniquely yours. EU shipping. Production may take up to two weeks.</p>
           <a href="https://www.surgekitestore.com/products/ogc-custom-handle" target="_blank" rel="noopener" class="btn btn--primary">
             Shop at Surge
@@ -221,7 +227,7 @@
         </div>
 
         <div class="buy__option">
-          <img src="images/kitemana_logo.webp" alt="Kitemana" class="buy__store-logo">
+          <img src="/images/kitemana_logo.webp" alt="Kitemana" class="buy__store-logo">
           <p>Ready to ship from stock. Pre-produced in batches and available for immediate delivery. Global shipping. A great option if you want your handle fast.</p>
           <a href="https://www.kitemana.nl/kitemana/big-air-board-handle-118344" target="_blank" rel="noopener" class="btn btn--primary">
             Shop at Kitemana
@@ -237,7 +243,7 @@
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <img src="images/logo_transparent.png" alt="OGC" class="footer__logo">
+        <img src="/images/logo_transparent.png" alt="OGC" class="footer__logo">
       </div>
       <div class="footer__links">
         <a href="specs.html">Specs</a>
@@ -250,6 +256,14 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "/js/vendor/three/three.module.js",
+      "three/examples/jsm/": "/js/vendor/three/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="/js/main.js"></script>
 </body>
 </html>

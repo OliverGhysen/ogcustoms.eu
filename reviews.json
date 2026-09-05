@@ -1,0 +1,112 @@
+{
+  "reviews": [
+    {
+      "rating": 5,
+      "first_name": "Ivan tamborero",
+      "date": "2026-08-04T12:00:00.000Z",
+      "text": "Man, what a nice habdle. It just feels right. I love holding it so much my girlfriend is getting jealous.",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Aiko",
+      "date": "2026-07-31T12:01:00.000Z",
+      "text": "This handle helps so much with my progression. Perfect height, grip, shape, and unbreakable.",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Sam",
+      "date": "2026-07-31T12:00:00.000Z",
+      "text": "The best out there! Have been using mine now for quite a while and the progress is insane. Really solid in the hand and the design is insane",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Aline Stockman",
+      "date": "2026-07-29T12:12:00.000Z",
+      "text": "Highly recommend this handle! It feels very solid and robust in the hand, yet it's slim enough to be comfortable even for smaller hands. Also love the customizable colors. :)",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Anonymous",
+      "date": "2026-07-29T12:11:00.000Z",
+      "text": "I've tried every handle on the market, and I can safely say that this is the best one out of all if you really care about progressing in your board off game, from first boardoffs to triple flips and osmosis, it really makes a difference. Recommend it to everyone, it has helped me a lot.",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Maxim",
+      "date": "2026-07-29T12:10:00.000Z",
+      "text": "Best handle on the market!! Really comfortable and stepped up my board off game completely",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Adriano",
+      "date": "2026-07-29T12:09:00.000Z",
+      "text": "This handle has for me the best grip on the market. The fact that it's customisable is so cool!! High quality and good looking. Highly recommended !",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Nicolas",
+      "date": "2026-07-29T12:08:00.000Z",
+      "text": "Designed and produced with the highest precision. I have been using a few older prototypes and they feel very solid in the hand and will last forever. I would highly recommend.",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Hugo Gaborit",
+      "date": "2026-07-29T12:07:00.000Z",
+      "text": "A great handle that feels comfortable in your hand and, most importantly, is ergonomic which is really handy in strong, gusty winds. Plus, she is light, so it doesn't add any extra weight to the board.",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Nelsonhols",
+      "date": "2026-07-29T12:06:00.000Z",
+      "text": "Nicest handle I ever tried",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Mitch",
+      "date": "2026-07-29T12:05:00.000Z",
+      "text": "I've probably tried almost every big air handle on the market, and the OG Customs Big Air Handle is easily the best I've used. What stands out most is how it feels in your hand\u2014it just gives you so much confidence when you're taking the board off. It's perfect for board flips, tic tacs, and any board-off tricks where having a secure, comfortable grip really matters. The build quality is excellent, it's rock solid, and you can tell it's made to last. After trying so many different handles, this is the one I'd choose every time. If you're into big air and board-offs, I can't recommend it enough.",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Jackdehert",
+      "date": "2026-07-29T12:04:00.000Z",
+      "text": "Best handle on the market! Makes boardoffs so much easier. Super comfortable grip and the colors look awesome.",
+      "image_urls": [],
+      "verified": true
+    },
+    {
+      "rating": 5,
+      "first_name": "Anonymous",
+      "date": "2026-07-29T12:03:00.000Z",
+      "text": "This thing is undestroyable. Love it!",
+      "image_urls": [],
+      "verified": true
+    }
+  ],
+  "aggregate": {
+    "average": 5.0,
+    "count": 13
+  }
+}

@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Local-only design docs and working material (not for publication)
+design.md
+gitignore_surge_site/
+ogc_backend_prep/
+concept/

@@ -1146,11 +1146,11 @@ a {
     max-width: 280px;
   }
 
-  /* Six engineered points: 2 wide x 3 tall, flowing with the page (no inner
-     scroll). Unpin the section so the video becomes a full-height background. */
+  /* Six engineered points: 2 wide x 3 tall, as a single full-screen panel over
+     the video - no inner scroll, no overflow. */
   .features__grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
   }
 
   .features__pin {
@@ -1158,15 +1158,47 @@ a {
   }
 
   /* Unpinned but still a positioning context so the absolute video fills the
-     stage (not the whole page). */
+     stage. top:0 cancels the desktop sticky offset, which was leaving a black
+     bar above the video and pushing the video past the section below. */
   .features__stage {
     position: relative;
+    top: 0;
     height: auto;
+    min-height: calc(100dvh - var(--nav-height));
   }
 
   .features .section__inner {
     height: auto;
+    min-height: calc(100dvh - var(--nav-height));
     overflow: visible;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  /* Compact cards so all six fit within one phone screen. */
+  .features .feature {
+    padding: 12px 14px;
+  }
+
+  .features .feature__icon {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+  }
+
+  .features .feature__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .features .feature h3 {
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+
+  .features .feature p {
+    font-size: 11.5px;
+    line-height: 1.4;
   }
 
   .features__viewer {

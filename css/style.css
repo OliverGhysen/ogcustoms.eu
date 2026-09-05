@@ -1146,17 +1146,25 @@ a {
     max-width: 280px;
   }
 
+  /* Six engineered points: 2 wide x 3 tall, flowing with the page (no inner
+     scroll). Unpin the section so the video becomes a full-height background. */
   .features__grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .features__pin {
-    height: 160vh;
+    height: auto;
   }
 
   .features__stage {
-    height: calc(100dvh - var(--nav-height));
+    position: static;
+    height: auto;
+  }
+
+  .features .section__inner {
+    height: auto;
+    overflow: visible;
   }
 
   .features__viewer {
@@ -1164,7 +1172,7 @@ a {
   }
 
   .viewer__pin {
-    height: 280vh;
+    height: 200vh;
   }
 
   .viewer__caption {

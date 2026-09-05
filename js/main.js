@@ -8,6 +8,31 @@
     void import("./handle-viewer.js").then((m) => m.initHandleViewer());
   }
 
+  // Background video: mobile browsers often refuse the HTML `autoplay` attribute
+  // (power saving / heuristics). Force it muted+inline and, if the first play()
+  // is rejected, retry once on the first user interaction.
+  const bgVideo = document.querySelector(".features__video video");
+  if (bgVideo) {
+    bgVideo.muted = true;
+    bgVideo.defaultMuted = true;
+    bgVideo.setAttribute("muted", "");
+    bgVideo.setAttribute("playsinline", "");
+    const tryPlay = () => {
+      const p = bgVideo.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+    tryPlay();
+    const retryOnce = () => {
+      tryPlay();
+      window.removeEventListener("touchstart", retryOnce);
+      window.removeEventListener("scroll", retryOnce);
+      window.removeEventListener("click", retryOnce);
+    };
+    window.addEventListener("touchstart", retryOnce, { passive: true, once: true });
+    window.addEventListener("scroll", retryOnce, { passive: true, once: true });
+    window.addEventListener("click", retryOnce, { once: true });
+  }
+
   const nav = document.getElementById("nav");
   const navToggle = document.getElementById("nav-toggle");
   const navLinks = document.getElementById("nav-links");

@@ -288,11 +288,15 @@ class HandleViewer {
     this.renderer.render(this.scene, this.camera);
   };
 
-  // Frame the largest (radius-1) handle by height; tighter than a full fit so
-  // the models read large on the stage while neighbours still peek.
+  // Frame the largest (radius-1) handle; tighter than a full fit so the models
+  // read large on the stage while neighbours still peek. Fit whichever axis is
+  // tighter: landscape -> vertical binds (desktop unchanged); portrait -> the
+  // horizontal FOV binds, so we pull the camera back to show the whole handle.
   frameToFit() {
+    const R = 0.82;
     const halfFovY = (this.camera.fov * Math.PI) / 180 / 2;
-    this.dist = 0.82 / Math.sin(halfFovY);
+    const halfFovX = Math.atan(Math.tan(halfFovY) * this.camera.aspect);
+    this.dist = Math.max(R / Math.sin(halfFovY), R / Math.sin(halfFovX));
   }
 
   setMsg(text) {

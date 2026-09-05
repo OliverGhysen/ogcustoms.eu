@@ -21,7 +21,24 @@
       const p = bgVideo.play();
       if (p && typeof p.catch === "function") p.catch(() => {});
     };
-    tryPlay();
+
+    // Desktop gets the new horizontal clip; mobile reuses the vertical Surge clip
+    // (a better fit for a portrait phone screen). Swap on breakpoint crossings.
+    const mq = window.matchMedia("(max-width: 768px)");
+    const applySrc = () => {
+      const url =
+        (mq.matches ? bgVideo.dataset.mobile : bgVideo.dataset.desktop) ||
+        bgVideo.dataset.desktop;
+      if (url && bgVideo.getAttribute("src") !== url) {
+        bgVideo.src = url;
+        bgVideo.load();
+      }
+      tryPlay();
+    };
+    applySrc();
+    if (mq.addEventListener) mq.addEventListener("change", applySrc);
+    else if (mq.addListener) mq.addListener(applySrc);
+
     const retryOnce = () => {
       tryPlay();
       window.removeEventListener("touchstart", retryOnce);

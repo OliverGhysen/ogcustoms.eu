@@ -88,27 +88,46 @@
 
   const lightboxImg = lightbox.querySelector("img");
 
+  // Track all lightbox-enabled images so we can navigate between them.
+  const lightboxImages = [];
+  let lightboxIndex = -1;
+
+  const showLightboxImage = (index) => {
+    if (!lightboxImg || lightboxImages.length === 0) return;
+    lightboxIndex = (index + lightboxImages.length) % lightboxImages.length;
+    const img = lightboxImages[lightboxIndex];
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+  };
+
+  const openLightbox = (index) => {
+    showLightboxImage(index);
+    lightbox.classList.add("lightbox--active");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("lightbox--active");
+    document.body.style.overflow = "";
+  };
+
   const bindLightbox = (img) => {
-    img.addEventListener("click", () => {
-      if (!lightboxImg) return;
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add("lightbox--active");
-      document.body.style.overflow = "hidden";
-    });
+    const index = lightboxImages.push(img) - 1;
+    img.addEventListener("click", () => openLightbox(index));
   };
 
   document.querySelectorAll(".gallery__item img").forEach(bindLightbox);
 
-  lightbox.addEventListener("click", () => {
-    lightbox.classList.remove("lightbox--active");
-    document.body.style.overflow = "";
-  });
+  lightbox.addEventListener("click", closeLightbox);
 
   document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("lightbox--active")) return;
     if (e.key === "Escape") {
-      lightbox.classList.remove("lightbox--active");
-      document.body.style.overflow = "";
+      closeLightbox();
+    } else if (e.key === "ArrowRight") {
+      showLightboxImage(lightboxIndex + 1);
+    } else if (e.key === "ArrowLeft") {
+      showLightboxImage(lightboxIndex - 1);
     }
   });
 
@@ -339,8 +358,12 @@
         <span class="reviews__count">${n} review${n === 1 ? "" : "s"}</span>`;
     }
 
+    const REVIEWS_PREVIEW = 3;
     const filterEl = document.getElementById("reviews-filter");
     const sortEl = document.getElementById("reviews-sort");
+    const moreEl = document.getElementById("reviews-more");
+    let expanded = false;
+
     const apply = () => {
       let rows = data.reviews.slice();
       const f = filterEl?.value ?? "all";
@@ -351,10 +374,26 @@
         if (s === "lowest") return a.rating - b.rating;
         return new Date(b.date).getTime() - new Date(a.date).getTime();
       });
-      renderReviewList(rows);
+      const remaining = rows.length - REVIEWS_PREVIEW;
+      const canToggle = remaining > 0;
+      if (!canToggle) expanded = false;
+      renderReviewList(expanded ? rows : rows.slice(0, REVIEWS_PREVIEW));
+      if (moreEl) {
+        moreEl.hidden = !canToggle;
+        moreEl.setAttribute("aria-expanded", expanded ? "true" : "false");
+        moreEl.textContent = expanded ? "Show less" : `Show ${remaining} more`;
+      }
     };
-    filterEl?.addEventListener("change", apply);
-    sortEl?.addEventListener("change", apply);
+    const resetAndApply = () => {
+      expanded = false;
+      apply();
+    };
+    filterEl?.addEventListener("change", resetAndApply);
+    sortEl?.addEventListener("change", resetAndApply);
+    moreEl?.addEventListener("click", () => {
+      expanded = !expanded;
+      apply();
+    });
     apply();
 
     emitReviewsJsonLd(data);

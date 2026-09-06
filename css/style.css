@@ -787,8 +787,23 @@ a {
   background: var(--color-surface);
 }
 
+.craftsmanship__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
 .craftsmanship__text {
   max-width: 640px;
+}
+
+.craftsmanship__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
 }
 
 .craftsmanship__text p {
@@ -1144,6 +1159,11 @@ a {
   .features__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+  }
+
+  .craftsmanship__inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
   .features__pin {
@@ -2089,6 +2109,16 @@ a {
   object-fit: cover;
   border-radius: 8px;
   cursor: zoom-in;
+}
+
+.reviews__more {
+  display: flex;
+  width: fit-content;
+  margin: 24px auto 0;
+}
+
+.reviews__more[hidden] {
+  display: none;
 }
 
 .reviews__note {

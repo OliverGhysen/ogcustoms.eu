@@ -19,7 +19,7 @@ const MODELS = [
 ];
 
 /** World-space gap between handle centres after the shared (largest-radius = 1) scale. */
-const SPACING = 1.82;
+const SPACING = 2.08;
 /** Extra Y-rotation (radians) per handle-index away from the focused one. */
 const PHASE = 1.15;
 /** Extra scroll at each end, in world units. Converted to index and used for

@@ -327,14 +327,7 @@ a {
 }
 
 .feature__icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.45);
-  border-radius: var(--radius);
-  margin-bottom: 16px;
+  display: none;
 }
 
 .feature h3 {

@@ -29,6 +29,71 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Structured data. NOTE: aggregateRating (ratingValue/reviewCount) is hardcoded
+       to match reviews.json — update both together when reviews change. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ogcustoms.eu/#organization",
+        "name": "OGC",
+        "url": "https://ogcustoms.eu/",
+        "logo": "https://ogcustoms.eu/images/logo_transparent.png",
+        "sameAs": [
+          "https://www.instagram.com/ogcustoms___/"
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://ogcustoms.eu/#product",
+        "name": "OGC Big Air Handle",
+        "brand": { "@id": "https://ogcustoms.eu/#organization" },
+        "description": "The premium big air handle trusted by the pros. Custom 3D-printed kiteboard grab handle, available as Mini, Tall, and Trap Phone in widths from 160mm to 215mm.",
+        "category": "Kiteboard handle",
+        "material": "PETG",
+        "url": "https://ogcustoms.eu/#buy",
+        "image": [
+          "https://ogcustoms.eu/images/tall_photo.webp",
+          "https://ogcustoms.eu/images/mini_photo.webp",
+          "https://ogcustoms.eu/images/trap_photo.webp"
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1",
+          "reviewCount": "13"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Aiko Vandenbussche" },
+            "datePublished": "2026-07-31",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "This handle helps so much with my progression. Perfect height, grip, shape, and unbreakable."
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Sam Snels" },
+            "datePublished": "2026-07-31",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "The best out there! Have been using mine now for quite a while and the progress is insane. Really solid in the hand and the design is insane."
+          },
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Aline Stockman" },
+            "datePublished": "2026-07-29",
+            "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+            "reviewBody": "Highly recommend this handle! It feels very solid and robust in the hand, yet it's slim enough to be comfortable even for smaller hands. Also love the customizable colors."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 

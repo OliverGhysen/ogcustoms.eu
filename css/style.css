@@ -314,11 +314,11 @@ a {
 .features__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 20px;
 }
 
 .feature {
-  padding: 22px;
+  padding: 24px;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: var(--radius);

@@ -331,15 +331,15 @@ a {
 }
 
 .feature h3 {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 7px;
+  margin-bottom: 8px;
 }
 
 .feature p {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--color-text-muted);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 /* ---- GALLERY ---- */

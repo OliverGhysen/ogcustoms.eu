@@ -314,11 +314,11 @@ a {
 .features__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 32px;
 }
 
 .feature {
-  padding: 24px;
+  padding: 22px;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: var(--radius);
@@ -338,15 +338,15 @@ a {
 }
 
 .feature h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 
 .feature p {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--color-text-muted);
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 /* ---- GALLERY ---- */
